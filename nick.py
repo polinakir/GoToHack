@@ -3,6 +3,8 @@ from pymongo import MongoClient
 import json
 from datetime import datetime
 
+# -- Получение возраста --
+
 c = MongoClient('goto.reproducible.work')
 print(c.database_names())
 
@@ -21,7 +23,7 @@ while i < 15:
 	print "Age : %d" % ((datetime.today() - b_date).days/365)
 	i += 1
 
-# Получение возраста 
+# -- Получение возраста --
 
 #uQuery = users.find({ }, { bdate: 1, id: 1 })
 
