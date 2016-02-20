@@ -1,0 +1,85 @@
+{
+    "graduation": 2006,
+    "last_seen": {
+        "time": 1432531383,
+        "platform": 4
+    },
+    "bdate": "23.9.1999",
+    "interests": "Немного спорта",
+    "domain": "soop81",
+    "faculty_name": "Юриспруденция",
+    "university_name": "ИФЭП ОЗ",
+    "education_form": "Заочное отделение",
+    "music": "Слушаю   Все",
+    "tv": "НЕТ",
+    "university": 65746,
+    "site": "",
+    "games": "Логика",
+    "can_post": 1,
+    "common_count": 0,
+    "status": "",
+    "movies": "Те которые можно назвать хитами в кинематографе",
+    "online": 0,
+    "city": {
+        "title": "Москва",
+        "id": 1
+    },
+    "_id": 111499,
+    "can_write_private_message": 1,
+    "sex": 2,
+    "books": "ФИЛОСОФИЯ И ПСИХОЛОГИЯ",
+    "occupation": {
+        "name": "ИФЭП ОЗ",
+        "type": "university",
+        "id": 65746
+    },
+    "quotes": "… лучшая доля не воздерживаться от наслаждений,\nА в том, чтобы властвовать над ними,\nНе подчиняясь им.                                                                                   АРИСТИПП\n",
+    "schools": [
+        {
+            "country": 1,
+            "year_from": 1988,
+            "name": "Гимназия №16",
+            "class": "г",
+            "year_to": 1999,
+            "type_str": "Гимназия",
+            "speciality": "общеобразовательный",
+            "year_graduated": 1999,
+            "city": 155,
+            "type": 1,
+            "id": "80986"
+        }
+    ],
+    "education_status": "Выпускник (специалист)",
+    "can_see_all_posts": 1,
+    "faculty": 120881,
+    "relation": 0,
+    "about": "Жизнелюб",
+    "country": {
+        "title": "Россия",
+        "id": 1
+    },
+    "relatives": [],
+    "has_mobile": 1,
+    "activities": "НЕ МОЕ",
+    "personal": {
+        "alcohol": 4,
+        "political": 8,
+        "smoking": 3
+    },
+    "first_name": "Андрей",
+    "universities": [
+        {
+            "graduation": 2006,
+            "country": 1,
+            "faculty": 120881,
+            "name": "ИФЭП ОЗ",
+            "faculty_name": "Юриспруденция",
+            "education_status": "Выпускник (специалист)",
+            "education_form": "Заочное отделение",
+            "city": 1,
+            "id": 65746
+        }
+    ],
+    "screen_name": "soop81",
+    "can_see_audio": 1
+}
