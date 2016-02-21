@@ -13,10 +13,10 @@ def Pars(text):
 		pairs_text = text.split()
 	else:
 		pairs_text = text
-		
+
 	for word in pairs_text:
 		if re.search(pattern3, word):
-			pass
+			exit = 1
 		elif re.search(pattern2, word):
 			counter2 += 1
 			print(word)
