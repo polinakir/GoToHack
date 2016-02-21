@@ -101,26 +101,28 @@ df1 = pd.Series(age_count_complete)
 #df2 = pd.Series(age_count).to_frame()
 df.insert(0, "Full completed",df1)
 
+print(df)
 #df.insert(1, "Total",df2)
-
+color = ['blue', 'red', 'pink', 'green']
 #c = []
 #for i in range(14, 19):
 #    c.append((df["Full completed"][i] * 1.0 /df["Total"][i])*100)
 #df.insert(2, "Percent", c)
-c = col.Counter()
-for word in df["Full completed"][14]:
-     c[word] += 1
-df_new = pd.DataFrame(list(c.items()), columns=["val","count"])
-plt.xlabel("Percent")
-plt.ylabel("Count")
-df_new = df_new.sort_values('val')
-print(df_new)
+plt.legend(loc="upper left")
+for i in range(4):
+    c = col.Counter()
+    for word in df["Full completed"][14+i]:
+        c[word] += 1
+        df_new = pd.DataFrame(list(c.items()), columns=["val","count"])
+    plt.xlabel("Percent")
+    plt.ylabel("Count")
+    df_new = df_new.sort_values('val')
 
-plt.plot(df_new['val'], df_new['count'], color='blue')
+    #plt.plot(df_new['val'], df_new['count'], color=color[i])
+    plt.hist(df_new)
 #plt.plot(df.index, df["Total"], color='blue')
 #plt.plot(df.index, df["Full completed"], color='red')
 #plt.plot(df.index, df["Percent"], color='red')
 
-#plt.legend(loc="upper left")
 
 #print(user.count(), data.count())
