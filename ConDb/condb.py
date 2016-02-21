@@ -20,7 +20,7 @@ class ConDB:
 
     defaultCond = {'_id': 1, 'bdate': 1, 'interests': 1, 'about': 1, 'music': 1, 'tv': 1, 'books': 1, 'games': 1, 'movies': 1}
     
-    def getUsersDF(self, lim=100, cond=defaultCond):
+    def getUsers(self, lim=0, cond=defaultCond):
         from datetime import datetime
         from pandas import DataFrame
         users = self.db.users
