@@ -36,11 +36,12 @@ russian_stemmer = RussianStemmer()
 def stemmer_m(user):
     def process(key):
         token = tokenizer.tokenize(user[key])
-        stem_tok = []                
-        for t in token: 
-            stem_tok.append(englich_stemmer.stem(t))
-            stem_tok.append(russian_stemmer.stem(t))
-        return 1
+        stem_token = []
+        
+        for t in token:             
+            stem_token.extend(englich_stemmer.stem(t))
+            stem_token.extend(russian_stemmer.stem(t))
+        return Pars(stem_token)
 
     percent = 0
     for key in key_user:
@@ -52,12 +53,10 @@ def stemmer_m(user):
                 percent += 1
             except TypeError:
                 process(key)
-                Pars(user[key])
-                percent += 1
+                percent += process(key)
             except ValueError:
                 process(key)
-                Pars(user[key])
-                percent += 1
+                percent += process(key)
     return int((percent/len(key_user))*100)
     
 #data = [{'age': 15, 'c': 'Yes', 'm': 3}, {'age': 15, 'c': 'Yes', 'm': ''}, {'age': 18, 'c': 'Yes', 'm': 3}, {'age': 16, 'c': None, 'm': 3}]

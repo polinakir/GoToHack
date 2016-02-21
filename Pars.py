@@ -18,14 +18,15 @@ def Pars(text):
 			pass
 		elif re.search(pattern2, word):
 			counter2 += 1
+			return 0
 			print(word)
 		elif re.search(pattern1, word):
 			counter1 += 1
+			return 0
 			print(word)
 		elif len(word) > critical_count_letter:
 			low_letter += 1
+			return 0
 			print(word)
-	# print("counter1: {0}\ncounter2: {1}\nlow_letter: {2}".format(counter1, counter2, low_letter))
-
-
-Pars("")
+	return 1
+	# return [counter1, counter2, low_letter]
