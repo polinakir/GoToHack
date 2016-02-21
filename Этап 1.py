@@ -6,6 +6,17 @@ Created on Sat Feb 20 21:35:05 2016
 
 """
 
+
+##############################
+##############################
+#########            #########
+######### ПОДГОТОВКА #########
+#########            #########
+##############################
+##############################
+
+
+### Импортируем все модули ###
 import pandas as pd
 from ConDb.condb import ConDB 
 import matplotlib.pyplot as plt
@@ -14,10 +25,14 @@ from nltk.tokenize import RegexpTokenizer
 import re
 import collections as col
 from Pars import Pars
+
+### Все, что нужно такинайзеру и стэмеру ###
+pattern = re.compile("[^ ,\.\!\?\:]+")
+tokenizer = RegexpTokenizer(pattern)
 englich_stemmer = SnowballStemmer("english")
 russian_stemmer = RussianStemmer()
 
-
+### функции для уменьшения объема кода ###
 def stemmer_m(user):
     def process(key):
         token = tokenizer.tokenize(user[key])
@@ -46,10 +61,19 @@ def stemmer_m(user):
     return int((percent/len(key_user))*100)
     
 #data = [{'age': 15, 'c': 'Yes', 'm': 3}, {'age': 15, 'c': 'Yes', 'm': ''}, {'age': 18, 'c': 'Yes', 'm': 3}, {'age': 16, 'c': None, 'm': 3}]
-pattern = re.compile("[^ ,\.\!\?\:]+")
-tokenizer = RegexpTokenizer(pattern)
-DB = ConDB()
 
+
+########################################
+########################################
+#########                      #########
+######### ПРЕДОБРАБОТКА ДАННЫХ #########
+#########                      #########
+########################################
+########################################
+
+
+### Получаем людей из базы ###
+DB = ConDB()
 data = DB.getUsers(1000)
 
 age_count_complete = {age: [] for age in range(14, 19)}
@@ -57,10 +81,22 @@ age_count = {age: [] for age in range(14, 19)}
 
 key_user = data[0].keys()
 
+### обрабатываем профили ###
 for user in data:
     complete = stemmer_m(user)
     age_count_complete[int(user["age"])].append(complete)
     #age_count[int(user["age"])].append(
+
+################################
+################################
+#########              #########
+######### ВИЗУАЛИЗАЦИЯ #########
+#########              #########
+################################
+################################
+
+
+### переменные для визуализации ###
 df = pd.DataFrame()
 df1 = pd.Series(age_count_complete)
 #df2 = pd.Series(age_count).to_frame()
