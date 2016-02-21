@@ -1,6 +1,7 @@
 import re
 too_big = 20
-pattern4 = re.compile("[\.\\;:\^\{\}\|\_\-\!@$\%&*\(\)]+")
+dot_pattern = re.compile("[\.\(\)]")
+pattern4 = re.compile("[\\;:\^\{\}\|\_\-\!@$\%&*\(\)]+")
 pattern1 = re.compile("\w([\.\\;:\^\{\}\|\_\-\!@$%&*\(\)]+)\w")
 pattern2 = re.compile("(\w|^)([0-9]+)(\w+)")
 pattern3 = re.compile("([0-9]+)(\w+)")
@@ -12,6 +13,7 @@ def Pars(token):
 	low_letter = 0
 
 	for word in token:
+		word = re.sub(dot_pattern, '', word)
 		if word == "":
 			exit =  0
 		elif re.search(pattern2, word) or re.search(pattern3, word):

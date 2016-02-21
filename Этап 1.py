@@ -75,7 +75,7 @@ def stemmer_m(user):
 
 ### Получаем людей из базы ###
 DB = ConDB()
-data = DB.getUsers(1000)
+data = DB.getUsers(100000)
 
 age_count_complete = {age: [] for age in range(14, 19)}
 age_count = {age: [] for age in range(14, 19)}
@@ -116,8 +116,8 @@ for i in range(4):
     for word in df["Full completed"][14+i]:
         c[word] += 1
         df_new = pd.DataFrame(list(c.items()), columns=["val","count"])
-    plt.xlabel("Percent")
-    plt.ylabel("Count")
+    #plt.xlabel("Percent")
+    #plt.ylabel("Count")
     df_new = df_new.sort_values('val')
 
     plt.plot(df_new['val'], df_new['count'], color=color[i])
