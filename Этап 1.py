@@ -6,6 +6,7 @@ Created on Sat Feb 20 21:35:05 2016
 """
 
 import pandas as pd
+from ConDb.condb import ConDB 
 data = [{'age': 15, 'c': 'Yes', 'm': 3}, {'age': 15, 'c': 'Yes', 'm': ''}, {'age': 18, 'c': 'Yes', 'm': 3}, {'age': 16, 'c': None, 'm': 3}]
 age_count_compile = {age: 0 for age in range(14, 19)}
 age_count = {age: 0 for age in range(14, 19)}
