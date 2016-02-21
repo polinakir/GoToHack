@@ -13,6 +13,7 @@ from nltk.stem.snowball import RussianStemmer, SnowballStemmer
 from nltk.tokenize import RegexpTokenizer
 import re
 import collections as col
+from Pars import Pars
 englich_stemmer = SnowballStemmer("english")
 russian_stemmer = RussianStemmer()
 
@@ -36,9 +37,11 @@ def stemmer_m(user):
                 percent += 1
             except TypeError:
                 process(key)
+                Pars(user[key])
                 percent += 1
             except ValueError:
                 process(key)
+                Pars(user[key])
                 percent += 1
     return int((percent/len(key_user))*100)
     
@@ -62,7 +65,6 @@ df = pd.DataFrame()
 df1 = pd.Series(age_count_complete)
 #df2 = pd.Series(age_count).to_frame()
 df.insert(0, "Full completed",df1)
-p = []
 
 #df.insert(1, "Total",df2)
 
