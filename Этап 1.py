@@ -27,7 +27,7 @@ import collections as col
 from Pars import Pars
 
 ### Все, что нужно такинайзеру и стэмеру ###
-pattern = re.compile("[^ ,\.\!\?\:]+")
+pattern = re.compile("[^ ,\!\?]+")
 tokenizer = RegexpTokenizer(pattern)
 englich_stemmer = SnowballStemmer("english")
 russian_stemmer = RussianStemmer()
@@ -36,15 +36,18 @@ russian_stemmer = RussianStemmer()
 def stemmer_m(user):
     def process(key):
         token = tokenizer.tokenize(user[key])
-        stem_token = []
+        stem_token = token
         
-        for t in token:             
-            stem_token.extend(englich_stemmer.stem(t))
-            stem_token.extend(russian_stemmer.stem(t))
+        #for t in token:             
+        #    stem_token.extend(englich_stemmer.stem(t))
+        #    stem_token.extend(russian_stemmer.stem(t))
+        #print(stem_token)
         return Pars(stem_token)
 
     percent = 0
     for key in key_user:
+        if key == '_id' or key == 'age':
+            continue
         if (user[key] == None) or (user[key] == ""):
             pass
         else:
@@ -118,8 +121,8 @@ for i in range(4):
     plt.ylabel("Count")
     df_new = df_new.sort_values('val')
 
-    #plt.plot(df_new['val'], df_new['count'], color=color[i])
-    plt.hist(df_new)
+    plt.plot(df_new['val'], df_new['count'], color=color[i])
+    #plt.hist(df_new)
 #plt.plot(df.index, df["Total"], color='blue')
 #plt.plot(df.index, df["Full completed"], color='red')
 #plt.plot(df.index, df["Percent"], color='red')
