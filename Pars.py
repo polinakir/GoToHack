@@ -1,5 +1,5 @@
 import re
-critical_count_letter = 20
+too_big = 20
 pattern4 = re.compile("[\.\\;:\^\{\}\|\_\-\!@$\%&*\(\)]+")
 pattern1 = re.compile("\w([\.\\;:\^\{\}\|\_\-\!@$%&*\(\)]+)\w")
 pattern2 = re.compile("(\w|^)([0-9]+)(\w+)")
@@ -12,8 +12,9 @@ def Pars(token):
 	low_letter = 0
 
 	for word in token:
-		print("Hey	!")
-		if re.search(pattern2, word) or re.search(pattern3, word):
+		if word == "":
+			exit =  0
+		elif re.search(pattern2, word) or re.search(pattern3, word):
 			counter2 += 1
 			print(word)
 			exit =  0
@@ -21,7 +22,7 @@ def Pars(token):
 			counter1 += 1
 			print(word)
 			exit = 0
-		elif len(word) > critical_count_letter:
+		elif len(word) > too_big:
 			low_letter += 1
 			print(word)
 			exit = 0
@@ -30,4 +31,4 @@ def Pars(token):
 	return exit
 	# return [counter1, counter2, low_letter]
 
-print(Pars(["%%$%$^%%E%%%", "77gyy", "vrcuetvveitbveyvetbe" ]))
+# print(Pars(["%%$%$^%%E%%%", "77gyy", "vrcuetvveitbveyvetbe" ]))
