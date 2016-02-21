@@ -1,0 +1,26 @@
+import pymongo
+import pandas
+from datetime import datetime
+import math
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+def age(date):
+    return (datetime.today() - datetime.strptime(date, '%d.%m.%Y')).days * 1.0 / 365
+
+client = pymongo.MongoClient('goto.reproducible.work')
+db = client['vk']
+
+users_collection = db['users']
+friends = db['friends']
+cursor = users_collection.find()
+
+
+
+d = {14 : [], 15 : [], 16 : [], 17 : [], 18 : []}
+for cur in cursor.limit(5000):
+    try:
+        count = friends.find_one({'_id' : cur['_id']}, {'response.count' : 1})['response']['count']
+        d[int(age(cur['bdate']))].append(count)
+    except LookupError:
+        continue
