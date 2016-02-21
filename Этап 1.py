@@ -53,7 +53,6 @@ def stemmer_m(user):
         else:
             try:
                 int(user[key])
-                percent += 1
             except TypeError:
                 process(key)
                 percent += process(key)
